@@ -60,25 +60,3 @@
 
 </body>
 </html>
-<?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
-    $quantity = $_POST["quantity"];
-    $platform = $_POST["platform"];
-    $card_number = $_POST["card_number"];
-    // Collect other form data...
-
-    // Send email
-    $to = "hoolato24@gmail.com"; // Change this to your email address
-    $subject = "New eFPRO Order";
-    $message = "Quantity: $quantity\nPlatform: $platform\nCard Number: $card_number\n"; // Add other form data to the message
-
-    // Send email
-    mail($to, $subject, $message);
-
-    // Redirect to a thank you page or back to the homepage
-    header("Location: thank_you.php");
-    exit();
-}
-?>
